@@ -1,0 +1,85 @@
+---
+title: "Do not go gentle into that good night"
+author: "Dylan Thomas"
+date: 2020-12-01T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "poet", "regression"]
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="r-markdown-lives-on" class="section level1">
+<h1>R Markdown lives on</h1>
+<p>Do not go gentle into that good night,<br />
+Old age should burn and rave at close of day;<br />
+Rage, rage against the dying of the light.</p>
+<p>Though wise men at their end know dark is right,<br />
+Because their words had forked no lightning they<br />
+Do not go gentle into that good night.</p>
+<p>Good men, the last wave by, crying how bright<br />
+Their frail deeds might have danced in a green bay,<br />
+Rage, rage against the dying of the light.</p>
+<p>Wild men who caught and sang the sun in flight,<br />
+And learn, too late, they grieved it on its way,<br />
+Do not go gentle into that good night.</p>
+<p>Grave men, near death, who see with blinding sight<br />
+Blind eyes could blaze like meteors and be gay,<br />
+Rage, rage against the dying of the light.</p>
+<p>And you, my father, there on the sad height,<br />
+Curse, bless, me now with your fierce tears, I pray.<br />
+Do not go gentle into that good night.<br />
+Rage, rage against the dying of the light.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
+<p>A Simple T-test:</p>
+<pre class="r"><code>set.seed(0)
+PECopeChanges &lt;- c(rnorm(522, mean = 0.1843, sd = 0.1381))
+t.test(PECopeChanges, mu = 0.2) 
+## 
+##  One Sample t-test
+## 
+## data:  PECopeChanges
+## t = -2.4185, df = 521, p-value = 0.01593
+## alternative hypothesis: true mean is not equal to 0.2
+## 95 percent confidence interval:
+##  0.1736994 0.1972760
+## sample estimates:
+## mean of x 
+## 0.1854877</code></pre>
+</div>
+<div id="including-plots" class="section level1">
+<h1>Including Plots</h1>
+<p>You can also embed plots. See <a href="#fig:pie">1</a> into yourself.</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Pharaos were said to\
+  transcend their vessels&#39;, &#39;Geometry of the pyramid serves\
+as a resonant reminder&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="{{< blogdown/postref >}}index_files/figure-html/pie-1.png" alt="To outlive your mortal existence." width="672" />
+<p class="caption">
+Figure 1: To outlive your mortal existence.
+</p>
+</div>
+</div>

@@ -1,18 +1,41 @@
 ---
-title: "Hello R Markdown"
-author: "Frida Gomam"
+title: "Do not go gentle into that good night"
+author: "Dylan Thomas"
 date: 2020-12-01T21:13:14-05:00
 categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+tags: ["R Markdown", "poet", "regression"]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-# R Markdown
+# R Markdown lives on
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Do not go gentle into that good night,  
+Old age should burn and rave at close of day;  
+Rage, rage against the dying of the light.  
+
+Though wise men at their end know dark is right,  
+Because their words had forked no lightning they  
+Do not go gentle into that good night.  
+
+Good men, the last wave by, crying how bright  
+Their frail deeds might have danced in a green bay,  
+Rage, rage against the dying of the light.  
+
+Wild men who caught and sang the sun in flight,  
+And learn, too late, they grieved it on its way,  
+Do not go gentle into that good night.  
+
+Grave men, near death, who see with blinding sight  
+Blind eyes could blaze like meteors and be gay,  
+Rage, rage against the dying of the light.  
+
+And you, my father, there on the sad height,  
+Curse, bless, me now with your fierce tears, I pray.  
+Do not go gentle into that good night.  
+Rage, rage against the dying of the light.  
 
 You can embed an R code chunk like this:
 
@@ -22,15 +45,26 @@ fit <- lm(dist ~ speed, data = cars)
 fit
 ```
 
+A Simple T-test:
+
+```{r yo}
+set.seed(0)
+PECopeChanges <- c(rnorm(522, mean = 0.1843, sd = 0.1381))
+t.test(PECopeChanges, mu = 0.2) 
+```
+
+
 # Including Plots
 
-You can also embed plots. See Figure \@ref(fig:pie) for example:
+You can also embed plots. See \@ref(fig:pie) into yourself.
 
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+```{r pie, fig.cap='To outlive your mortal existence.', tidy=TRUE}
 par(mar = c(0, 1, 0, 1))
 pie(
   c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  c('Sky', 'Pharaos were said to\
+  transcend their vessels', 'Geometry of the pyramid serves\
+as a resonant reminder'),
   col = c('#0292D8', '#F7EA39', '#C4B632'),
   init.angle = -50, border = NA
 )

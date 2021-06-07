@@ -1,6 +1,12 @@
 ---
 date: "2016-05-05T21:48:51-07:00"
-title: About
+title: Where?
 ---
 
-This is a "hello world" example website for the [**blogdown**](https://github.com/rstudio/blogdown) package. The theme was forked from [@jrutheiser/hugo-lithium-theme](https://github.com/jrutheiser/hugo-lithium-theme) and modified by [Yihui Xie](https://github.com/yihui/hugo-lithium).
+Hell and welcome to a **Website**!  
+
+Here you can do **Nothing** in *Style!*  
+Are you sure you want to spend your time here?  
+
+<ins>Time doesn't exist</ins>. It is a Kantian form, as in non-concept.
+A mere intuition that is one system of labelling and ordering information inside your mind. Refrigerators were invented in 1899 (by Albert T. Marshall). A mouse. Sedentary lifestyle tornado-blast 1757 in 4-piece setting teapot betrayal candy was one of many.

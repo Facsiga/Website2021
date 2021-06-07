@@ -1,6 +1,6 @@
 baseurl: /
 languageCode: en-us
-title: A Hugo website
+title: Beware
 theme: hugo-lithium
 googleAnalytics: ''
 disqusShortname: ''
@@ -14,27 +14,24 @@ permalinks:
   post: /:year/:month/:day/:slug/
 menu:
   main:
-    - name: About
+    - name: Why?
       url: /about/
-    - name: GitHub
-      url: https://github.com/rstudio/blogdown
-    - name: Twitter
-      url: https://twitter.com/rstudio
+
 params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   description: A website built through Hugo and blogdown.
-  favicon: favicon.ico
+  favicon: icon.ico
   highlightjsCDN: //cdnjs.cloudflare.com/ajax/libs
   highlightjsLang:
     - r
     - yaml
-  highlightjsTheme: github
+  highlightjsTheme: atom-one-dark
   highlightjsVersion: 9.12.0
   logo:
     alt: Logo
     height: 50
-    url: logo.png
+    url: icon.ico
     width: 50
 markup:
   defaultMarkdownHandler: goldmark
