@@ -1,0 +1,629 @@
+---
+title: "World Happiness Report 2021"
+author: "from Kaggle.com"
+date: '2020-12-01T21:13:14-05:00'
+categories: R
+tags:
+- R Markdown
+- produce
+- progression
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Some world statistics about countries according to various measures:</p>
+<p>(Database downloaded from <strong>kaggle.com.</strong>)</p>
+<p>##Top 10 Countries According to Logged GDP Per Capita in 2020</p>
+<pre class="r"><code>world_happy2020 &lt;-
+  world_happy %&gt;%
+  dplyr::filter(year == &quot;2020&quot;)
+  
+world_happy2020 %&gt;%
+  select(ď.żCountry.name,Log.GDP.per.capita) %&gt;%
+  arrange(desc(Log.GDP.per.capita)) %&gt;%
+  slice_head(n = 10)  %&gt;%
+  view()
+</code></pre>
+<p>##Top 10 Countries According to Social Support in 2021</p>
+<pre class="r"><code>world_happy2021 %&gt;%
+  select(ď.żCountry.name,Social.support) %&gt;%
+  arrange(desc(Social.support)) %&gt;%
+  slice_head(n = 10)  %&gt;%
+  view()</code></pre>
+<p>##Number of countries with life expectancy equal or higher than 70 between 2005 and 2020</p>
+<pre class="r"><code>world_happy %&gt;%
+  filter(Healthy.life.expectancy.at.birth &gt;= 70)  %&gt;%
+  group_by(year) %&gt;%
+  summarise(
+    No_of_Countries = n(),
+  ) %&gt;%
+  view()
+</code></pre>
+<p>##Top 5 Countries according to Happiness Index (“Life Ladder”) in 2021</p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Below you may find some statistical descriptions of used tables.</p>
+<div id="database-statistics-summary-about-world-happiness-table" class="section level3">
+<h3>Database statistics summary about World Happiness Table:</h3>
+<pre class="r"><code>skimr::skim(world_happy)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">world_happy</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">1949</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">11</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">10</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ď.żCountry.name</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">166</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="21%" />
+<col width="6%" />
+<col width="9%" />
+<col width="5%" />
+<col width="3%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">year</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">2013.22</td>
+<td align="right">4.17</td>
+<td align="right">2005.00</td>
+<td align="right">2010.00</td>
+<td align="right">2013.00</td>
+<td align="right">2017.00</td>
+<td align="right">2020.00</td>
+<td align="left">▆▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">Life.Ladder</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">5.47</td>
+<td align="right">1.12</td>
+<td align="right">2.38</td>
+<td align="right">4.64</td>
+<td align="right">5.39</td>
+<td align="right">6.28</td>
+<td align="right">8.02</td>
+<td align="left">▁▅▇▆▃</td>
+</tr>
+<tr class="odd">
+<td align="left">Log.GDP.per.capita</td>
+<td align="right">36</td>
+<td align="right">0.98</td>
+<td align="right">9.37</td>
+<td align="right">1.15</td>
+<td align="right">6.64</td>
+<td align="right">8.46</td>
+<td align="right">9.46</td>
+<td align="right">10.35</td>
+<td align="right">11.65</td>
+<td align="left">▃▆▇▇▅</td>
+</tr>
+<tr class="even">
+<td align="left">Social.support</td>
+<td align="right">13</td>
+<td align="right">0.99</td>
+<td align="right">0.81</td>
+<td align="right">0.12</td>
+<td align="right">0.29</td>
+<td align="right">0.75</td>
+<td align="right">0.84</td>
+<td align="right">0.90</td>
+<td align="right">0.99</td>
+<td align="left">▁▁▂▆▇</td>
+</tr>
+<tr class="odd">
+<td align="left">Healthy.life.expectancy.at.birth</td>
+<td align="right">55</td>
+<td align="right">0.97</td>
+<td align="right">63.36</td>
+<td align="right">7.51</td>
+<td align="right">32.30</td>
+<td align="right">58.69</td>
+<td align="right">65.20</td>
+<td align="right">68.59</td>
+<td align="right">77.10</td>
+<td align="left">▁▁▃▇▅</td>
+</tr>
+<tr class="even">
+<td align="left">Freedom.to.make.life.choices</td>
+<td align="right">32</td>
+<td align="right">0.98</td>
+<td align="right">0.74</td>
+<td align="right">0.14</td>
+<td align="right">0.26</td>
+<td align="right">0.65</td>
+<td align="right">0.76</td>
+<td align="right">0.86</td>
+<td align="right">0.98</td>
+<td align="left">▁▂▅▇▆</td>
+</tr>
+<tr class="odd">
+<td align="left">Generosity</td>
+<td align="right">89</td>
+<td align="right">0.95</td>
+<td align="right">0.00</td>
+<td align="right">0.16</td>
+<td align="right">-0.34</td>
+<td align="right">-0.11</td>
+<td align="right">-0.03</td>
+<td align="right">0.09</td>
+<td align="right">0.70</td>
+<td align="left">▃▇▃▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Perceptions.of.corruption</td>
+<td align="right">110</td>
+<td align="right">0.94</td>
+<td align="right">0.75</td>
+<td align="right">0.19</td>
+<td align="right">0.04</td>
+<td align="right">0.69</td>
+<td align="right">0.80</td>
+<td align="right">0.87</td>
+<td align="right">0.98</td>
+<td align="left">▁▁▁▅▇</td>
+</tr>
+<tr class="odd">
+<td align="left">Positive.affect</td>
+<td align="right">22</td>
+<td align="right">0.99</td>
+<td align="right">0.71</td>
+<td align="right">0.11</td>
+<td align="right">0.32</td>
+<td align="right">0.63</td>
+<td align="right">0.72</td>
+<td align="right">0.80</td>
+<td align="right">0.94</td>
+<td align="left">▁▂▇▇▃</td>
+</tr>
+<tr class="even">
+<td align="left">Negative.affect</td>
+<td align="right">16</td>
+<td align="right">0.99</td>
+<td align="right">0.27</td>
+<td align="right">0.09</td>
+<td align="right">0.08</td>
+<td align="right">0.21</td>
+<td align="right">0.26</td>
+<td align="right">0.32</td>
+<td align="right">0.70</td>
+<td align="left">▃▇▃▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="database-statistics-summary-about-world-happiness-2021-table" class="section level3">
+<h3>Database statistics summary about World Happiness 2021 Table:</h3>
+<pre class="r"><code>skimr::skim(world_happy2021)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-6">Table 2: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">world_happy2021</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">149</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">20</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">18</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ď.żCountry.name</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">149</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Regional.indicator</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">34</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="28%" />
+<col width="6%" />
+<col width="9%" />
+<col width="4%" />
+<col width="3%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ladder.score</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.53</td>
+<td align="right">1.07</td>
+<td align="right">2.52</td>
+<td align="right">4.85</td>
+<td align="right">5.53</td>
+<td align="right">6.26</td>
+<td align="right">7.84</td>
+<td align="left">▁▅▇▇▃</td>
+</tr>
+<tr class="even">
+<td align="left">Standard.error.of.ladder.score</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.06</td>
+<td align="right">0.02</td>
+<td align="right">0.03</td>
+<td align="right">0.04</td>
+<td align="right">0.05</td>
+<td align="right">0.07</td>
+<td align="right">0.17</td>
+<td align="left">▇▆▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">upperwhisker</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.65</td>
+<td align="right">1.05</td>
+<td align="right">2.60</td>
+<td align="right">4.99</td>
+<td align="right">5.62</td>
+<td align="right">6.34</td>
+<td align="right">7.90</td>
+<td align="left">▁▃▇▇▃</td>
+</tr>
+<tr class="even">
+<td align="left">lowerwhisker</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5.42</td>
+<td align="right">1.09</td>
+<td align="right">2.45</td>
+<td align="right">4.71</td>
+<td align="right">5.41</td>
+<td align="right">6.13</td>
+<td align="right">7.78</td>
+<td align="left">▁▃▇▇▃</td>
+</tr>
+<tr class="odd">
+<td align="left">Logged.GDP.per.capita</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9.43</td>
+<td align="right">1.16</td>
+<td align="right">6.64</td>
+<td align="right">8.54</td>
+<td align="right">9.57</td>
+<td align="right">10.42</td>
+<td align="right">11.65</td>
+<td align="left">▂▆▇▇▅</td>
+</tr>
+<tr class="even">
+<td align="left">Social.support</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.81</td>
+<td align="right">0.11</td>
+<td align="right">0.46</td>
+<td align="right">0.75</td>
+<td align="right">0.83</td>
+<td align="right">0.90</td>
+<td align="right">0.98</td>
+<td align="left">▁▂▃▇▇</td>
+</tr>
+<tr class="odd">
+<td align="left">Healthy.life.expectancy</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">64.99</td>
+<td align="right">6.76</td>
+<td align="right">48.48</td>
+<td align="right">59.80</td>
+<td align="right">66.60</td>
+<td align="right">69.60</td>
+<td align="right">76.95</td>
+<td align="left">▂▃▃▇▅</td>
+</tr>
+<tr class="even">
+<td align="left">Freedom.to.make.life.choices</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.79</td>
+<td align="right">0.11</td>
+<td align="right">0.38</td>
+<td align="right">0.72</td>
+<td align="right">0.80</td>
+<td align="right">0.88</td>
+<td align="right">0.97</td>
+<td align="left">▁▂▅▇▇</td>
+</tr>
+<tr class="odd">
+<td align="left">Generosity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">-0.02</td>
+<td align="right">0.15</td>
+<td align="right">-0.29</td>
+<td align="right">-0.13</td>
+<td align="right">-0.04</td>
+<td align="right">0.08</td>
+<td align="right">0.54</td>
+<td align="left">▅▇▅▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Perceptions.of.corruption</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.73</td>
+<td align="right">0.18</td>
+<td align="right">0.08</td>
+<td align="right">0.67</td>
+<td align="right">0.78</td>
+<td align="right">0.84</td>
+<td align="right">0.94</td>
+<td align="left">▁▁▁▅▇</td>
+</tr>
+<tr class="odd">
+<td align="left">Ladder.score.in.Dystopia</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.43</td>
+<td align="right">0.00</td>
+<td align="right">2.43</td>
+<td align="right">2.43</td>
+<td align="right">2.43</td>
+<td align="right">2.43</td>
+<td align="right">2.43</td>
+<td align="left">▁▁▇▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Explained.by..Log.GDP.per.capita</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.98</td>
+<td align="right">0.40</td>
+<td align="right">0.00</td>
+<td align="right">0.67</td>
+<td align="right">1.02</td>
+<td align="right">1.32</td>
+<td align="right">1.75</td>
+<td align="left">▂▆▇▇▅</td>
+</tr>
+<tr class="odd">
+<td align="left">Explained.by..Social.support</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.79</td>
+<td align="right">0.26</td>
+<td align="right">0.00</td>
+<td align="right">0.65</td>
+<td align="right">0.83</td>
+<td align="right">1.00</td>
+<td align="right">1.17</td>
+<td align="left">▁▂▅▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">Explained.by..Healthy.life.expectancy</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.52</td>
+<td align="right">0.21</td>
+<td align="right">0.00</td>
+<td align="right">0.36</td>
+<td align="right">0.57</td>
+<td align="right">0.66</td>
+<td align="right">0.90</td>
+<td align="left">▂▃▃▇▅</td>
+</tr>
+<tr class="odd">
+<td align="left">Explained.by..Freedom.to.make.life.choices</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.50</td>
+<td align="right">0.14</td>
+<td align="right">0.00</td>
+<td align="right">0.41</td>
+<td align="right">0.51</td>
+<td align="right">0.60</td>
+<td align="right">0.72</td>
+<td align="left">▁▂▅▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">Explained.by..Generosity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.18</td>
+<td align="right">0.10</td>
+<td align="right">0.00</td>
+<td align="right">0.10</td>
+<td align="right">0.16</td>
+<td align="right">0.24</td>
+<td align="right">0.54</td>
+<td align="left">▅▇▅▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Explained.by..Perceptions.of.corruption</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.14</td>
+<td align="right">0.11</td>
+<td align="right">0.00</td>
+<td align="right">0.06</td>
+<td align="right">0.10</td>
+<td align="right">0.17</td>
+<td align="right">0.55</td>
+<td align="left">▇▅▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Dystopia…residual</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.43</td>
+<td align="right">0.54</td>
+<td align="right">0.65</td>
+<td align="right">2.14</td>
+<td align="right">2.51</td>
+<td align="right">2.79</td>
+<td align="right">3.48</td>
+<td align="left">▁▂▅▇▃</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,9 +1,12 @@
 ---
 title: "World Happiness Report 2021"
 author: "from Kaggle.com"
-date: 2020-12-01T21:13:14-05:00
-categories: ["R"]
-tags: ["R Markdown", "produce", "progression"]
+date: '2020-12-01T21:13:14-05:00'
+categories: R
+tags:
+- R Markdown
+- produce
+- progression
 ---
 
 ```{r setup, include=FALSE}
