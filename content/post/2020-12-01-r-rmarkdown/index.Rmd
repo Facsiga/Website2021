@@ -1,84 +1,118 @@
 ---
-title: "Do not go gentle into that good night"
-author: "Dylan Thomas"
+title: "World Happiness Report 2021"
+author: "from Kaggle.com"
 date: 2020-12-01T21:13:14-05:00
 categories: ["R"]
-tags: ["R Markdown", "poet", "regression"]
+tags: ["R Markdown", "produce", "progression"]
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
+library(tidyverse)
+
+#importing datatables
+world_happy <- read.csv("data/world-happiness-report.csv")
+world_happy2021 <- read.csv("data/world-happiness-report-2021.csv")
 ```
 
-# R Markdown lives on
+Some world statistics about countries according to various measures:
 
-Do not go gentle into that good night,  
-Old age should burn and rave at close of day;  
-Rage, rage against the dying of the light.  
+(Database downloaded from **kaggle.com.**)
 
-Though wise men at their end know dark is right,  
-Because their words had forked no lightning they  
-Do not go gentle into that good night.  
+##Top 10 Countries According to Logged GDP Per Capita in 2020
 
-Good men, the last wave by, crying how bright  
-Their frail deeds might have danced in a green bay,  
-Rage, rage against the dying of the light.  
+``` {r}
+world_happy2020 <-
+  world_happy %>%
+  dplyr::filter(year == "2020")
+  
+world_happy2020 %>%
+  select(ď.żCountry.name,Log.GDP.per.capita) %>%
+  arrange(desc(Log.GDP.per.capita)) %>%
+  slice_head(n = 10)  %>%
+  view()
 
-Wild men who caught and sang the sun in flight,  
-And learn, too late, they grieved it on its way,  
-Do not go gentle into that good night.  
-
-Grave men, near death, who see with blinding sight  
-Blind eyes could blaze like meteors and be gay,  
-Rage, rage against the dying of the light.  
-
-And you, my father, there on the sad height,  
-Curse, bless, me now with your fierce tears, I pray.  
-Do not go gentle into that good night.  
-Rage, rage against the dying of the light.  
-
-A Simple T-test:
-
-```{r yo}
-set.seed(0)
-PECopeChanges <- c(rnorm(522, mean = 0.1843, sd = 0.1381))
-t.test(PECopeChanges, mu = 0.2) 
-```
-
-
-DATA is our government:
-
-``` {r megaz}
-razmataz1 <- read.csv("data/world-happiness-report.csv", stringsAsFactors=FALSE, na.strings = ".")
-
-data.frame(Country_name = razmataz1$ď.żCountry.name[1:50], Social_support = razmataz1$Social.support[1:50]) 
 
 ```
 
-WORLD Happiness:
+##Top 10 Countries According to Social Support in 2021
 
-``` {r megaze}
-razmataz2 <- read.csv("data/world-happiness-report-2021.csv", stringsAsFactors=FALSE, na.strings = ".")
-
-
-dzsenga <- data.frame(Country_name = razmataz2$ď.żCountry.name[1:10], GDP_per_capita = razmataz2$Logged.GDP.per.capita[1:10])
-
-dzsenga
+``` {r}
+world_happy2021 %>%
+  select(ď.żCountry.name,Social.support) %>%
+  arrange(desc(Social.support)) %>%
+  slice_head(n = 10)  %>%
+  view()
 
 ```
 
-# Including Plots
+##Number of countries with life expectancy equal or higher than 70 between 2005 and 2020
 
-You can also embed plots. See \@ref(fig:pie) into yourself.
+```{r}
+world_happy %>%
+  filter(Healthy.life.expectancy.at.birth >= 70)  %>%
+  group_by(year) %>%
+  summarise(
+    No_of_Countries = n(),
+  ) %>%
+  view()
 
-```{r pie, fig.cap='To outlive your mortal existence.', tidy=TRUE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Pharaos were said to\
-  transcend their vessels', 'Geometry of the pyramid serves\
-as a resonant reminder'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
+
+```
+
+##Top 5 Countries according to Happiness Index ("Life Ladder") in 2021
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+
+
+world_happy2021 %>%
+  select(ď.żCountry.name,Ladder.score) %>%
+  #group_by(ď.żCountry.name) %>%
+  arrange(desc(world_happy2021$Ladder.score)) %>%
+  slice_head(n = 5)  %>%
+  ggplot() + 
+  aes(
+    x = fct_inorder(ď.żCountry.name, Ladder.score),
+    y = Ladder.score,
+    fill = Ladder.score) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    x = "Country",
+    y = "Ladder Score",
+    title = 'The 5 Happiest Countries in 2021 ("Happiness Index")'
+    ) +
+  geom_text (
+    aes(label = Ladder.score),
+    size = 5,
+    hjust = 0.5,
+    vjust = 3,
+    position = "stack",
+    color = "black") +
+  scale_fill_gradient (
+    low = "beige",
+    high = "gold"
+    ) +
+  scale_y_continuous(
+    expand = c(0,0),
+    limits = c(0,8)) +
+  theme_minimal() +
+  theme(
+    axis.line = element_line(size = 0.7, color = "gold"),
+    legend.position = "none"
+    )
+
+```
+
+Below you may find some statistical descriptions of used tables.
+
+### Database statistics summary about World Happiness Table:
+
+```{r}
+skimr::skim(world_happy)
+```
+
+### Database statistics summary about World Happiness 2021 Table:
+
+```{r}
+skimr::skim(world_happy2021)
 ```

@@ -14,7 +14,7 @@ permalinks:
   post: /:year/:month/:day/:slug/
 menu:
   main:
-    - name: Why?
+    - name: About
       url: /about/
 
 params:

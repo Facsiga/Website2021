@@ -1,12 +1,25 @@
 ---
 date: "2016-05-05T21:48:51-07:00"
-title: Where?
+title: Zsombor Fekete
 ---
 
-Hell and welcome to a **Website**!  
+#Employment Status & Studies
 
-Here you can do **Nothing** in *Style!*  
-Are you sure you want to spend your time here?  
+##BT Global Services Hungary
+**2018 -**
+General Administrator
 
-<ins>Time doesn't exist</ins>. It is a Kantian form, as in non-concept.
-A mere intuition that is one system of labelling and ordering information inside your mind. Refrigerators were invented in 1899 (by Albert T. Marshall). A mouse. Sedentary lifestyle tornado-blast 1757 in 4-piece setting teapot betrayal candy was one of many.
+##Eötvös Loránd University
+**2019 -**
+Psychology BA
+
+##Károli Gáspár University
+**2016-2019**
+Psychology BA
+
+#Interests
+
+- autobiographical memory
+- narrative cognition
+- complexity modelling
+- etc.
