@@ -22,7 +22,7 @@ Some world statistics about countries according to various measures:
 
 (Database downloaded from **kaggle.com.**)
 
-##Top 10 Countries According to Logged GDP Per Capita in 2020
+## Top 10 Countries According to Logged GDP Per Capita in 2020
 
 ``` {r}
 world_happy2020 <-
@@ -38,7 +38,7 @@ world_happy2020 %>%
 
 ```
 
-##Top 10 Countries According to Social Support in 2021
+## Top 10 Countries According to Social Support in 2021
 
 ``` {r}
 world_happy2021 %>%
@@ -49,7 +49,7 @@ world_happy2021 %>%
 
 ```
 
-##Number of countries with life expectancy equal or higher than 70 between 2005 and 2020
+## Number of countries with life expectancy equal or higher than 70 between 2005 and 2020
 
 ```{r}
 world_happy %>%
@@ -63,7 +63,7 @@ world_happy %>%
 
 ```
 
-##Top 5 Countries according to Happiness Index ("Life Ladder") in 2021
+## Top 5 Countries according to Happiness Index ("Life Ladder") in 2021
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 

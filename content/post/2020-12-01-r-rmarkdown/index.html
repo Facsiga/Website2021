@@ -14,7 +14,8 @@ tags:
 
 <p>Some world statistics about countries according to various measures:</p>
 <p>(Database downloaded from <strong>kaggle.com.</strong>)</p>
-<p>##Top 10 Countries According to Logged GDP Per Capita in 2020</p>
+<div id="top-10-countries-according-to-logged-gdp-per-capita-in-2020" class="section level2">
+<h2>Top 10 Countries According to Logged GDP Per Capita in 2020</h2>
 <pre class="r"><code>world_happy2020 &lt;-
   world_happy %&gt;%
   dplyr::filter(year == &quot;2020&quot;)
@@ -25,13 +26,17 @@ world_happy2020 %&gt;%
   slice_head(n = 10)  %&gt;%
   view()
 </code></pre>
-<p>##Top 10 Countries According to Social Support in 2021</p>
+</div>
+<div id="top-10-countries-according-to-social-support-in-2021" class="section level2">
+<h2>Top 10 Countries According to Social Support in 2021</h2>
 <pre class="r"><code>world_happy2021 %&gt;%
   select(ď.żCountry.name,Social.support) %&gt;%
   arrange(desc(Social.support)) %&gt;%
   slice_head(n = 10)  %&gt;%
   view()</code></pre>
-<p>##Number of countries with life expectancy equal or higher than 70 between 2005 and 2020</p>
+</div>
+<div id="number-of-countries-with-life-expectancy-equal-or-higher-than-70-between-2005-and-2020" class="section level2">
+<h2>Number of countries with life expectancy equal or higher than 70 between 2005 and 2020</h2>
 <pre class="r"><code>world_happy %&gt;%
   filter(Healthy.life.expectancy.at.birth &gt;= 70)  %&gt;%
   group_by(year) %&gt;%
@@ -40,7 +45,9 @@ world_happy2020 %&gt;%
   ) %&gt;%
   view()
 </code></pre>
-<p>##Top 5 Countries according to Happiness Index (“Life Ladder”) in 2021</p>
+</div>
+<div id="top-5-countries-according-to-happiness-index-life-ladder-in-2021" class="section level2">
+<h2>Top 5 Countries according to Happiness Index (“Life Ladder”) in 2021</h2>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Below you may find some statistical descriptions of used tables.</p>
 <div id="database-statistics-summary-about-world-happiness-table" class="section level3">
@@ -626,4 +633,5 @@ world_happy2020 %&gt;%
 </tr>
 </tbody>
 </table>
+</div>
 </div>
