@@ -63,25 +63,74 @@ t.test(PECopeChanges, mu = 0.2)
 ## sample estimates:
 ## mean of x 
 ## 0.1854877</code></pre>
-<pre class="r"><code>razmataz1 &lt;- read.csv(&quot;data/True.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
+<pre class="r"><code>razmataz1 &lt;- read.csv(&quot;data/world-happiness-report.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
 
+data.frame(Country_name = razmataz1$ď.żCountry.name[1:50], Social_support = razmataz1$Social.support[1:50]) 
+##    Country_name Social_support
+## 1   Afghanistan          0.451
+## 2   Afghanistan          0.552
+## 3   Afghanistan          0.539
+## 4   Afghanistan          0.521
+## 5   Afghanistan          0.521
+## 6   Afghanistan          0.484
+## 7   Afghanistan          0.526
+## 8   Afghanistan          0.529
+## 9   Afghanistan          0.559
+## 10  Afghanistan          0.491
+## 11  Afghanistan          0.508
+## 12  Afghanistan          0.420
+## 13      Albania          0.821
+## 14      Albania          0.833
+## 15      Albania          0.733
+## 16      Albania          0.759
+## 17      Albania          0.785
+## 18      Albania          0.759
+## 19      Albania          0.626
+## 20      Albania          0.639
+## 21      Albania          0.638
+## 22      Albania          0.638
+## 23      Albania          0.684
+## 24      Albania          0.686
+## 25      Albania          0.710
+## 26      Algeria             NA
+## 27      Algeria          0.810
+## 28      Algeria          0.839
+## 29      Algeria          0.818
+## 30      Algeria          0.749
+## 31      Algeria          0.807
+## 32      Algeria          0.799
+## 33      Algeria          0.803
+## 34       Angola          0.723
+## 35       Angola          0.753
+## 36       Angola          0.722
+## 37       Angola          0.755
+## 38    Argentina          0.938
+## 39    Argentina          0.862
+## 40    Argentina          0.892
+## 41    Argentina          0.919
+## 42    Argentina          0.927
+## 43    Argentina          0.889
+## 44    Argentina          0.902
+## 45    Argentina          0.910
+## 46    Argentina          0.918
+## 47    Argentina          0.926
+## 48    Argentina          0.883
+## 49    Argentina          0.907
+## 50    Argentina          0.900</code></pre>
+<pre class="r"><code>razmataz2 &lt;- read.csv(&quot;data/world-happiness-report-2021.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
 
-razmataz1$title[1:3]  
-## [1] &quot;As U.S. budget fight looms, Republicans flip their fiscal script&quot;
-## [2] &quot;U.S. military to accept transgender recruits on Monday: Pentagon&quot;
-## [3] &quot;Senior U.S. Republican senator: &#39;Let Mr. Mueller do his job&#39;&quot;</code></pre>
-<pre class="r"><code>razmataz2 &lt;- read.csv(&quot;data/Fake.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
-razmataz2$title[1:10]
-##  [1] &quot; Donald Trump Sends Out Embarrassing New Yearâ\200\231s Eve Message; This is Disturbing&quot;                       
-##  [2] &quot; Drunk Bragging Trump Staffer Started Russian Collusion Investigation&quot;                                   
-##  [3] &quot; Sheriff David Clarke Becomes An Internet Joke For Threatening To Poke People â\200\230In The Eyeâ\200\231&quot;          
-##  [4] &quot; Trump Is So Obsessed He Even Has Obamaâ\200\231s Name Coded Into His Website (IMAGES)&quot;                        
-##  [5] &quot; Pope Francis Just Called Out Donald Trump During His Christmas Speech&quot;                                  
-##  [6] &quot; Racist Alabama Cops Brutalize Black Boy While He Is In Handcuffs (GRAPHIC IMAGES)&quot;                      
-##  [7] &quot; Fresh Off The Golf Course, Trump Lashes Out At FBI Deputy Director And James Comey&quot;                     
-##  [8] &quot; Trump Said Some INSANELY Racist Stuff Inside The Oval Office, And Witnesses Back It Up&quot;                 
-##  [9] &quot; Former CIA Director Slams Trump Over UN Bullying, Openly Suggests Heâ\200\231s Acting Like A Dictator (TWEET)&quot;
-## [10] &quot; WATCH: Brand-New Pro-Trump Ad Features So Much A** Kissing It Will Make You Sick&quot;</code></pre>
+data.frame(Country_name = razmataz2$ď.żCountry.name[1:10], GDP_per_capita = razmataz2$Logged.GDP.per.capita[1:10])
+##    Country_name GDP_per_capita
+## 1       Finland         10.775
+## 2       Denmark         10.933
+## 3   Switzerland         11.117
+## 4       Iceland         10.878
+## 5   Netherlands         10.932
+## 6        Norway         11.053
+## 7        Sweden         10.867
+## 8    Luxembourg         11.647
+## 9   New Zealand         10.643
+## 10      Austria         10.906</code></pre>
 </div>
 <div id="including-plots" class="section level1">
 <h1>Including Plots</h1>

@@ -54,16 +54,16 @@ t.test(PECopeChanges, mu = 0.2)
 ```
 
 ``` {r megaz}
-razmataz1 <- read.csv("data/True.csv", stringsAsFactors=FALSE, na.strings = ".")
+razmataz1 <- read.csv("data/world-happiness-report.csv", stringsAsFactors=FALSE, na.strings = ".")
 
-
-razmataz1$title[1:3]  
+data.frame(Country_name = razmataz1$ď.żCountry.name[1:50], Social_support = razmataz1$Social.support[1:50]) 
 
 ```
 
 ``` {r megaze}
-razmataz2 <- read.csv("data/Fake.csv", stringsAsFactors=FALSE, na.strings = ".")
-razmataz2$title[1:10]
+razmataz2 <- read.csv("data/world-happiness-report-2021.csv", stringsAsFactors=FALSE, na.strings = ".")
+
+data.frame(Country_name = razmataz2$ď.żCountry.name[1:10], GDP_per_capita = razmataz2$Logged.GDP.per.capita[1:10])
 ```
 
 # Including Plots
