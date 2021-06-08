@@ -23,17 +23,36 @@ tags:
 world_happy2020 %&gt;%
   select(ď.żCountry.name,Log.GDP.per.capita) %&gt;%
   arrange(desc(Log.GDP.per.capita)) %&gt;%
-  slice_head(n = 10)  %&gt;%
-  view()
-</code></pre>
+  slice_head(n = 10)  
+##         ď.żCountry.name Log.GDP.per.capita
+## 1               Ireland             11.323
+## 2           Switzerland             11.081
+## 3  United Arab Emirates             11.053
+## 4                Norway             11.042
+## 5         United States             11.001
+## 6               Denmark             10.910
+## 7           Netherlands             10.901
+## 8               Austria             10.851
+## 9                Sweden             10.838
+## 10              Germany             10.833</code></pre>
 </div>
 <div id="top-10-countries-according-to-social-support-in-2021" class="section level2">
 <h2>Top 10 Countries According to Social Support in 2021</h2>
 <pre class="r"><code>world_happy2021 %&gt;%
   select(ď.żCountry.name,Social.support) %&gt;%
   arrange(desc(Social.support)) %&gt;%
-  slice_head(n = 10)  %&gt;%
-  view()</code></pre>
+  slice_head(n = 10) 
+##    ď.żCountry.name Social.support
+## 1          Iceland          0.983
+## 2     Turkmenistan          0.983
+## 3          Finland          0.954
+## 4          Denmark          0.954
+## 5           Norway          0.954
+## 6       Kazakhstan          0.952
+## 7      New Zealand          0.948
+## 8         Slovenia          0.948
+## 9          Ireland          0.947
+## 10  Czech Republic          0.947</code></pre>
 </div>
 <div id="number-of-countries-with-life-expectancy-equal-or-higher-than-70-between-2005-and-2020" class="section level2">
 <h2>Number of countries with life expectancy equal or higher than 70 between 2005 and 2020</h2>
@@ -42,9 +61,26 @@ world_happy2020 %&gt;%
   group_by(year) %&gt;%
   summarise(
     No_of_Countries = n(),
-  ) %&gt;%
-  view()
-</code></pre>
+  )
+## # A tibble: 16 x 2
+##     year No_of_Countries
+##    &lt;int&gt;           &lt;int&gt;
+##  1  2005              10
+##  2  2006              10
+##  3  2007              15
+##  4  2008              22
+##  5  2009              18
+##  6  2010              24
+##  7  2011              24
+##  8  2012              27
+##  9  2013              26
+## 10  2014              28
+## 11  2015              29
+## 12  2016              29
+## 13  2017              29
+## 14  2018              31
+## 15  2019              31
+## 16  2020              30</code></pre>
 </div>
 <div id="top-5-countries-according-to-happiness-index-life-ladder-in-2021" class="section level2">
 <h2>Top 5 Countries according to Happiness Index (“Life Ladder”) in 2021</h2>
