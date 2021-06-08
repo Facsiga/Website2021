@@ -16,15 +16,7 @@ tags:
 <p>(Database downloaded from <strong>kaggle.com.</strong>)</p>
 <div id="top-10-countries-according-to-logged-gdp-per-capita-in-2020" class="section level2">
 <h2>Top 10 Countries According to Logged GDP Per Capita in 2020</h2>
-<pre class="r"><code>world_happy2020 &lt;-
-  world_happy %&gt;%
-  dplyr::filter(year == &quot;2020&quot;)
-  
-world_happy2020 %&gt;%
-  select(ď.żCountry.name,Log.GDP.per.capita) %&gt;%
-  arrange(desc(Log.GDP.per.capita)) %&gt;%
-  slice_head(n = 10)  
-##         ď.żCountry.name Log.GDP.per.capita
+<pre><code>##         ď.żCountry.name Log.GDP.per.capita
 ## 1               Ireland             11.323
 ## 2           Switzerland             11.081
 ## 3  United Arab Emirates             11.053
@@ -38,11 +30,7 @@ world_happy2020 %&gt;%
 </div>
 <div id="top-10-countries-according-to-social-support-in-2021" class="section level2">
 <h2>Top 10 Countries According to Social Support in 2021</h2>
-<pre class="r"><code>world_happy2021 %&gt;%
-  select(ď.żCountry.name,Social.support) %&gt;%
-  arrange(desc(Social.support)) %&gt;%
-  slice_head(n = 10) 
-##    ď.żCountry.name Social.support
+<pre><code>##    ď.żCountry.name Social.support
 ## 1          Iceland          0.983
 ## 2     Turkmenistan          0.983
 ## 3          Finland          0.954
@@ -56,13 +44,7 @@ world_happy2020 %&gt;%
 </div>
 <div id="number-of-countries-with-life-expectancy-equal-or-higher-than-70-between-2005-and-2020" class="section level2">
 <h2>Number of countries with life expectancy equal or higher than 70 between 2005 and 2020</h2>
-<pre class="r"><code>world_happy %&gt;%
-  filter(Healthy.life.expectancy.at.birth &gt;= 70)  %&gt;%
-  group_by(year) %&gt;%
-  summarise(
-    No_of_Countries = n(),
-  )
-## # A tibble: 16 x 2
+<pre><code>## # A tibble: 16 x 2
 ##     year No_of_Countries
 ##    &lt;int&gt;           &lt;int&gt;
 ##  1  2005              10
@@ -88,7 +70,6 @@ world_happy2020 %&gt;%
 <p>Below you may find some statistical descriptions of used tables.</p>
 <div id="database-statistics-summary-about-world-happiness-table" class="section level3">
 <h3>Database statistics summary about World Happiness Table:</h3>
-<pre class="r"><code>skimr::skim(world_happy)</code></pre>
 <table>
 <caption><span id="tab:unnamed-chunk-5">Table 1: </span>Data summary</caption>
 <tbody>
@@ -323,7 +304,6 @@ world_happy2020 %&gt;%
 </div>
 <div id="database-statistics-summary-about-world-happiness-2021-table" class="section level3">
 <h3>Database statistics summary about World Happiness 2021 Table:</h3>
-<pre class="r"><code>skimr::skim(world_happy2021)</code></pre>
 <table>
 <caption><span id="tab:unnamed-chunk-6">Table 2: </span>Data summary</caption>
 <tbody>
