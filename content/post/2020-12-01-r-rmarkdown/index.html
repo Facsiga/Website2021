@@ -30,24 +30,6 @@ Rage, rage against the dying of the light.</p>
 Curse, bless, me now with your fierce tears, I pray.<br />
 Do not go gentle into that good night.<br />
 Rage, rage against the dying of the light.</p>
-<p>You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932</code></pre>
 <p>A Simple T-test:</p>
 <pre class="r"><code>set.seed(0)
 PECopeChanges &lt;- c(rnorm(522, mean = 0.1843, sd = 0.1381))
@@ -63,6 +45,7 @@ t.test(PECopeChanges, mu = 0.2)
 ## sample estimates:
 ## mean of x 
 ## 0.1854877</code></pre>
+<p>DATA is our government:</p>
 <pre class="r"><code>razmataz1 &lt;- read.csv(&quot;data/world-happiness-report.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
 
 data.frame(Country_name = razmataz1$ď.żCountry.name[1:50], Social_support = razmataz1$Social.support[1:50]) 
@@ -117,9 +100,13 @@ data.frame(Country_name = razmataz1$ď.żCountry.name[1:50], Social_support = ra
 ## 48    Argentina          0.883
 ## 49    Argentina          0.907
 ## 50    Argentina          0.900</code></pre>
+<p>WORLD Happiness:</p>
 <pre class="r"><code>razmataz2 &lt;- read.csv(&quot;data/world-happiness-report-2021.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
 
-data.frame(Country_name = razmataz2$ď.żCountry.name[1:10], GDP_per_capita = razmataz2$Logged.GDP.per.capita[1:10])
+
+dzsenga &lt;- data.frame(Country_name = razmataz2$ď.żCountry.name[1:10], GDP_per_capita = razmataz2$Logged.GDP.per.capita[1:10])
+
+dzsenga
 ##    Country_name GDP_per_capita
 ## 1       Finland         10.775
 ## 2       Denmark         10.933
