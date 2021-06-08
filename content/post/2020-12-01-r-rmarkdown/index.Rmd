@@ -47,11 +47,11 @@ world_happy2021 %>%
 
 ```
 
-## Number of countries with life expectancy equal or higher than 70 between 2005 and 2020
+## Number of countries with life expectancy above 70 years between 2005 and 2020
 
 ```{r echo=FALSE}
 world_happy %>%
-  filter(Healthy.life.expectancy.at.birth >= 70)  %>%
+  filter(Healthy.life.expectancy.at.birth > 70)  %>%
   group_by(year) %>%
   summarise(
     No_of_Countries = n(),
