@@ -53,6 +53,18 @@ PECopeChanges <- c(rnorm(522, mean = 0.1843, sd = 0.1381))
 t.test(PECopeChanges, mu = 0.2) 
 ```
 
+``` {r megaz}
+razmataz1 <- read.csv("data/True.csv", stringsAsFactors=FALSE, na.strings = ".")
+
+
+razmataz1$title[1:3]  
+
+```
+
+``` {r megaze}
+razmataz2 <- read.csv("data/Fake.csv", stringsAsFactors=FALSE, na.strings = ".")
+razmataz2$title[1:10]
+```
 
 # Including Plots
 

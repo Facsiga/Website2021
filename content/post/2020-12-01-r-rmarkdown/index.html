@@ -63,6 +63,25 @@ t.test(PECopeChanges, mu = 0.2)
 ## sample estimates:
 ## mean of x 
 ## 0.1854877</code></pre>
+<pre class="r"><code>razmataz1 &lt;- read.csv(&quot;data/True.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
+
+
+razmataz1$title[1:3]  
+## [1] &quot;As U.S. budget fight looms, Republicans flip their fiscal script&quot;
+## [2] &quot;U.S. military to accept transgender recruits on Monday: Pentagon&quot;
+## [3] &quot;Senior U.S. Republican senator: &#39;Let Mr. Mueller do his job&#39;&quot;</code></pre>
+<pre class="r"><code>razmataz2 &lt;- read.csv(&quot;data/Fake.csv&quot;, stringsAsFactors=FALSE, na.strings = &quot;.&quot;)
+razmataz2$title[1:10]
+##  [1] &quot; Donald Trump Sends Out Embarrassing New Yearâ\200\231s Eve Message; This is Disturbing&quot;                       
+##  [2] &quot; Drunk Bragging Trump Staffer Started Russian Collusion Investigation&quot;                                   
+##  [3] &quot; Sheriff David Clarke Becomes An Internet Joke For Threatening To Poke People â\200\230In The Eyeâ\200\231&quot;          
+##  [4] &quot; Trump Is So Obsessed He Even Has Obamaâ\200\231s Name Coded Into His Website (IMAGES)&quot;                        
+##  [5] &quot; Pope Francis Just Called Out Donald Trump During His Christmas Speech&quot;                                  
+##  [6] &quot; Racist Alabama Cops Brutalize Black Boy While He Is In Handcuffs (GRAPHIC IMAGES)&quot;                      
+##  [7] &quot; Fresh Off The Golf Course, Trump Lashes Out At FBI Deputy Director And James Comey&quot;                     
+##  [8] &quot; Trump Said Some INSANELY Racist Stuff Inside The Oval Office, And Witnesses Back It Up&quot;                 
+##  [9] &quot; Former CIA Director Slams Trump Over UN Bullying, Openly Suggests Heâ\200\231s Acting Like A Dictator (TWEET)&quot;
+## [10] &quot; WATCH: Brand-New Pro-Trump Ad Features So Much A** Kissing It Will Make You Sick&quot;</code></pre>
 </div>
 <div id="including-plots" class="section level1">
 <h1>Including Plots</h1>
